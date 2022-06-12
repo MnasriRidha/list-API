@@ -1,24 +1,34 @@
-import logo from './logo.svg';
+import React,{useEffect, useState} from 'react'
+import axios from 'axios';
+import {BrowserRouter as Router,Route} from "react-router-dom";
 import './App.css';
-
-function App() {
+import UserList from './components/UserList';
+import UserInfo from './components/UserInfo'
+function App(props) {
+      const [Users, setUsers]=useState([])
+    useEffect(()=>{
+       axios.get('https://jsonplaceholder.typicode.com/users')
+        .then(res=>{console.log(res)
+                    setUsers(res.data)
+                    
+                })
+        .catch(err=>{console.log(err)})
+    },[])
+    
+  console.log(Users)
   return (
+    <Router>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     
+        <Route path="/" render={(props)=><><UserList {...props} Users={Users}/></>}>
+        </Route>
+        <Route path="/userInfo/:id" render={(props)=><><UserInfo {...props} Users={Users}/></>} > 
+        </Route>
+     
     </div>
+   
+    </Router>
+    
   );
 }
 
