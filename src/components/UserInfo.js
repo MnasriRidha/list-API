@@ -3,7 +3,7 @@ import {useParams} from 'react-router-dom'
 import './styleUser.css'
 function UserInfo(props) {
     const {id}=useParams()
-    const user = props.Users.filter((el) =>  el.id === id)
+    const user = props.Users.filter((el) => el.id === id)
     return (
     
         <section class="section about-section gray-bg" id="about">
@@ -54,7 +54,7 @@ function UserInfo(props) {
                     </div>
                     <div class="col-lg-6">
                         <div class="about-avatar">
-                            <img src="https://bootdey.com/img/Content/avatar/avatar7.png" title="" alt=""/>
+                        <img src="https://bootdey.com/img/Content/avatar/avatar7.png" title="" alt=""/>
                         </div>
                     </div>
                 </div>

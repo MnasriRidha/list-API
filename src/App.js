@@ -1,9 +1,9 @@
-import React,{useEffect, useState} from 'react'
+import React,{useEffect, useState} from 'react';
 import axios from 'axios';
-import {BrowserRouter as Router,Route} from "react-router-dom";
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import UserList from './components/UserList';
-import UserInfo from './components/UserInfo'
+import UserInfo from './components/UserInfo';
 function App(props) {
       const [Users, setUsers]=useState([])
     useEffect(()=>{
@@ -17,19 +17,18 @@ function App(props) {
     
   console.log(Users)
   return (
-    <Router>
-    <div className="App">
-     
+    
+  
+      <Routes>
+        <div>
         <Route path="/" render={(props)=><><UserList {...props} Users={Users}/></>}>
         </Route>
         <Route path="/userInfo/:id" render={(props)=><><UserInfo {...props} Users={Users}/></>} > 
         </Route>
-     
-    </div>
-   
-    </Router>
-    
-  );
+       </div> 
+    </Routes>
+
+  )
 }
 
 export default App;
