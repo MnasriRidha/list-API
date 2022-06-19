@@ -18,14 +18,13 @@ function App(props) {
   console.log(Users)
   return (
     
-  
       <Routes>
-        <div>
-        <Route path="/" render={(props)=><><UserList {...props} Users={Users}/></>}>
+        
+        <Route path="/" element={<UserList Users={Users}/>}>
         </Route>
-        <Route path="/userInfo/:id" render={(props)=><><UserInfo {...props} Users={Users}/></>} > 
+        <Route path="/userInfo/:id" element={<UserInfo Users={Users}/>} > 
         </Route>
-       </div> 
+      
     </Routes>
 
   )

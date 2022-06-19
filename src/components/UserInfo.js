@@ -1,14 +1,14 @@
 import React from 'react'
-import {useParams} from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import './styleUser.css'
 function UserInfo(props) {
     const {id}=useParams()
-    const user = props.Users.filter((el) => el.id === id)
+    const user = props.Users.filter((el) => el.id == id)
     return (
     
         <section class="section about-section gray-bg" id="about">
             <div class="col-6 col-lg-3">
-                <button type="submit" onClick={()=>props.history.push('/')}>Go Back To Home</button>
+            <Link to="/" > <button type="submit" onClick={()=>props.history.push('/')}>Go Back To Home</button></Link>
             </div>
             <div class="container">
                 <div class="row align-items-center flex-row-reverse">
